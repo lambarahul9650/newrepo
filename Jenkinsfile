@@ -26,18 +26,19 @@ pipeline {
             }
         }
 
-         stage ('pull docker image') {
+         stage ('pull docker image on another server') {
 
             steps {
-                sh 'docker pull lambarahul298/text:01'
+
+                sh 'ssh ubuntu@3.24.242.1 docker pull lambarahul298/text:01'
                 
             }
         }
         
-         stage ('Docker run') {
+         stage ('Docker run on another server ') {
 
             steps {
-                sh 'docker run -d --name=nginx -p 9090:80 lambarahul298/text:01'
+                sh 'ssh ubuntu@3.24.242.1 docker run -d --name=nginx1 -p 9090:80 lambarahul298/text:01'
                 
             }
         }
