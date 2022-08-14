@@ -25,6 +25,21 @@ pipeline {
                 
             }
         }
+
+         stage ('pull docker image') {
+
+            steps {
+                sh 'docker pull lambarahul298/text:01'
+                
+            }
+        }
         
+         stage ('Docker run') {
+
+            steps {
+                sh 'docker run -d --name=nginx -p 80:80 lambarahul298/text:01'
+                
+            }
+        }
     }
 }
