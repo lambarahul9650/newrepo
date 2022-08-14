@@ -37,7 +37,7 @@ pipeline {
          stage ('Docker run') {
 
             steps {
-                sh 'docker run -d --name=nginx -p 80:80 lambarahul298/text:01'
+                sh 'docker run -d --name=nginx -p 9090:80 lambarahul298/text:01'
                 
             }
         }
